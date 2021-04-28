@@ -1,7 +1,7 @@
 from itertools import product
 arr = 0
 val_x = []
-val_y =[]
+val_y = []
 n = int(input('n = '))
 
 if __name__ == "__main__":
