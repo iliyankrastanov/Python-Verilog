@@ -11,9 +11,8 @@ if __name__ == "__main__":
             if y == 0:
                 arr += 1
         if arr == 1:
-
-            val_x.append(f"{x:02b}")
-            val_y.append(f"{x:02b}")
+            val_x.append(bin(x)[2:].zfill(n))
+            val_y.append(bin(x)[2:].zfill(n))
         arr = 0
 
 res = list(product(val_x, val_y))
