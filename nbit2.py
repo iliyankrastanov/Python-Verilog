@@ -36,3 +36,12 @@ if __name__ == "__main__":
             print("Please enter valid integer value")
         else:
             break
+
+filename = "rom_<a>x<b>.dat"
+
+for r in (('<a>', f'{2**(2*n)}'), ('<b>', f'{2*n}')):
+            filename = filename.replace(*r)
+
+fileobject = open(filename,'w')
+fileobject.write(f'{res_z}')
+fileobject.close()
