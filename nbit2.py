@@ -10,21 +10,29 @@ arr = 0
 val_x = []
 val_y = []
 
-n = int(input('Enter n = ')) 
-
 if __name__ == "__main__":
 
-    for x in range(n ** 2):
-        for y in range(n ** 2):            
-            if y == 0:
-                arr += 1
-        if arr == 1:
-            val_x.append(bin(x)[2:].zfill(n))
-            val_y.append(bin(x)[2:].zfill(n))
-        arr = 0
+    while True:
+        try:
+            n = int(input('Enter n = '))       
+                
+            for x in range(n ** 2):
+                for y in range(n ** 2):            
+                    if y == 0:
+                        arr += 1
+                if arr == 1:
+                    val_x.append(bin(x)[2:].zfill(n))
+                    val_y.append(bin(x)[2:].zfill(n))
+                arr = 0
 
-    res_xy = list(product(val_x, val_y))
-    print(f'Input = {res_xy}')
+            res_xy = list(product(val_x, val_y))
+            #print(f'Input = {res_xy}')
 
-    res_z = (multiply(res_xy))
-    print(f'Output = {res_z}')
+            res_z = (multiply(res_xy))
+            print(f'Output = {res_z}')
+
+        except (ValueError, KeyError,NameError) as e:
+            print(f'Invalid value or action ({e})')
+            
+        else:
+            break
