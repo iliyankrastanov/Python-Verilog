@@ -1,20 +1,21 @@
 from itertools import product
 
+def multiply(res):
+    output = []
+    for i in res:
+        output.append(bin(int(i[0], 2) * int(i[1], 2))[2:].zfill(n * 2))
+    return output
+
 arr = 0
 val_x = []
 val_y = []
-n = int(input('n = ')) 
 
-def multiply(product, *nums):
-    factor = product
-    for num in nums:
-        factor *= num
-    return factor
+n = int(input('Enter n = ')) 
 
 if __name__ == "__main__":
 
-    for x in range(n + 1):
-        for y in range(n + 1):
+    for x in range(n ** 2):
+        for y in range(n ** 2):            
             if y == 0:
                 arr += 1
         if arr == 1:
@@ -22,7 +23,8 @@ if __name__ == "__main__":
             val_y.append(bin(x)[2:].zfill(n))
         arr = 0
 
-res = list(product(val_x, val_y))
+    res_xy = list(product(val_x, val_y))
+    print(f'Input = {res_xy}')
 
-print(res)
-print(f'Z = {multiply(res)}') # Ne umnojava truple-a a go dublira
+    res_z = (multiply(res_xy))
+    print(f'Output = {res_z}')
