@@ -33,6 +33,6 @@ if __name__ == "__main__":
 
         except (ValueError, KeyError,NameError) as e:
             print(f'Invalid value or action ({e})')
-            
+            print("Please enter valid integer value")
         else:
             break
