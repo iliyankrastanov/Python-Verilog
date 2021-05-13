@@ -50,17 +50,14 @@ if __name__ == "__main__":
     fileobject = open(filename,'w')
         
     fileobject.write(f"""module mempy #(parameter N = {n})
-    (input [N - 1:0] address,
+    (input [(2*N) - 1:0] address,
      input read_en,
      input ce,
-     output [N - 1:0] data);
+     output [(2*N) - 1:0] data);
               
- reg [N - 1:0] mem [0: 2**(2*N)-1];
- integer file_pointer;
+ reg [(2*N) - 1:0] mem [0: 2**(2*N)-1];
 
   assign data = (ce && read_en) ? mem[address] : 0;
-
- integer i;
   
     initial begin
   $readmemb("{name}", mem);
@@ -79,11 +76,11 @@ module mempy_TB;
 
  parameter N = {n};
 
-  reg [N - 1:0] address;
+  reg [(2*N) - 1:0] address;
   reg read_en, ce;
-  wire [N - 1:0] data;
+  wire [(2*N) - 1:0] data;
  
- integer i;
+ integer i,j;
   
 mempy dut(.address(address),
           .data(data),
@@ -96,7 +93,8 @@ mempy dut(.address(address),
    ce      = 0;
    #10 $monitor ("address = %h, data = %h, read_en = %b, ce = %b", address, data, read_en, ce);
    for (i = 0; i < 2**(2*N); i = i + 1 )begin
-     #5 address = i;
+     for (j = 0; j < 2**(2*N); j = j + 1)begin
+     #5 address = {i,j};
      read_en = 1;
      ce = 1;
      #5 read_en = 0;
