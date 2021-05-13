@@ -100,8 +100,9 @@ mempy dut(.address(address),
      #5 read_en = 0;
      ce = 0;
      address = 0;
-   end
- end
+    end
+  end
+end
 endmodule""")
 
     fileobject.close()
