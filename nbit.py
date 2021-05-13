@@ -94,7 +94,7 @@ mempy dut(.address(address),
    #10 $monitor ("address = %h, data = %h, read_en = %b, ce = %b", address, data, read_en, ce);
    for (i = 0; i < 2**(2*N); i = i + 1 )begin
      for (j = 0; j < 2**(2*N); j = j + 1)begin
-     #5 address = {i,j};
+     #5 address = {{i,j}};
      read_en = 1;
      ce = 1;
      #5 read_en = 0;
