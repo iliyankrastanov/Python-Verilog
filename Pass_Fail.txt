@@ -1,0 +1,18 @@
+PASS
+PASS
+PASS
+PASS
+PASS
+PASS
+Different found in Line 7
+ Line 7 in File1)--> 0010
+ Line 7 in File2)--> 0011
+PASS
+PASS
+PASS
+PASS
+PASS
+PASS
+PASS
+PASS
+PASS
