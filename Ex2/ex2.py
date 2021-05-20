@@ -1,6 +1,6 @@
 # reading files
-f1 = open("results.dat", "r")  
-f2 = open("rom_16x4.dat", "r")  
+f1 = open("rom_16x4.dat", "r")  
+f2 = open("results.dat", "r")  
 f = open("results_compared.txt","w+")  
 i = 0
   
